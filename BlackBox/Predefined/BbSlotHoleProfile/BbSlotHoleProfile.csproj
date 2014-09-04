@@ -1,0 +1,100 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{39062200-0956-47F6-BDD0-481E5B8C046C}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>BbSlotHoleProfile</RootNamespace>
+    <AssemblyName>BbSlotHoleProfile</AssemblyName>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>Svn</SccProjectName>
+    <SccLocalPath>Svn</SccLocalPath>
+    <SccAuxPath>Svn</SccAuxPath>
+    <SccProvider>SubversionScc</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>True</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>False</Optimize>
+    <OutputPath>..\..\..\Library\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>True</Optimize>
+    <OutputPath>..\..\..\Library\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="BbSlottedHoleProfile.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Ifc\IFC2X3\IFC2X3.csproj">
+      <Project>{C0590489-A0E9-482A-9F2F-9E50E0ACA698}</Project>
+      <Name>IFC2X3</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Part21\EBInstanceModel\EBInstanceModel.csproj">
+      <Project>{AD0E267B-5397-4C62-B5D9-449E0FD1AF1F}</Project>
+      <Name>EBInstanceModel</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Service\BbBlackBox.Service.csproj">
+      <Project>{CDABBF36-99FD-4537-B07A-C6B663F8818F}</Project>
+      <Name>BbBlackBox.Service</Name>
+      <Private>False</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\BbArbitraryProfile\BbArbitraryProfile.csproj">
+      <Project>{D27615C4-B81B-4468-BD33-D67DCD0B5C27}</Project>
+      <Name>BbArbitraryProfile</Name>
+      <Private>False</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\BbDerivedProfile\BbDerivedProfile.csproj">
+      <Project>{4E612C5E-DF69-4286-88B0-DFC65C5A3D94}</Project>
+      <Name>BbDerivedProfile</Name>
+      <Private>False</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\BbDirection2D\BbDirection2D.csproj">
+      <Project>{8A844F03-427D-4F90-A7AE-297B75215024}</Project>
+      <Name>BbDirection2D</Name>
+      <Private>False</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\BbElementGeometry\BbElementGeometry.csproj">
+      <Project>{6660A463-AE43-4BAF-9C70-E11A509212EC}</Project>
+      <Name>BbElementGeometry</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BbExtrudedGeometry\BbExtrudedGeometry.csproj">
+      <Project>{A1946614-6BFE-4FC0-98D6-08AE385ABF02}</Project>
+      <Name>BbExtrudedGeometry</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BbProfile\BbProfile.csproj">
+      <Project>{299CE4D9-01A8-4304-86C3-4442F6756507}</Project>
+      <Name>BbProfile</Name>
+      <Private>False</Private>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

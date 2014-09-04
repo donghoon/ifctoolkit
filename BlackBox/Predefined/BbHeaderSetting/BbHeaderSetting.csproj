@@ -1,0 +1,110 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{2AE66BAE-97B8-479E-BE7B-750D7680C0F2}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>BbHeaderSetting</RootNamespace>
+    <AssemblyName>BbHeaderSetting</AssemblyName>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>Svn</SccProjectName>
+    <SccLocalPath>Svn</SccLocalPath>
+    <SccAuxPath>Svn</SccAuxPath>
+    <SccProvider>SubversionScc</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>True</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>False</Optimize>
+    <OutputPath>..\..\..\Library\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>True</Optimize>
+    <OutputPath>..\..\..\Library\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BbHeaderSetting.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Ifc\IFC2X3\IFC2X3.csproj">
+      <Project>{C0590489-A0E9-482A-9F2F-9E50E0ACA698}</Project>
+      <Name>IFC2X3</Name>
+      <Private>False</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Part21\EBInstanceModel\EBInstanceModel.csproj">
+      <Project>{AD0E267B-5397-4C62-B5D9-449E0FD1AF1F}</Project>
+      <Name>EBInstanceModel</Name>
+      <Private>False</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Service\BbBlackBox.Service.csproj">
+      <Project>{CDABBF36-99FD-4537-B07A-C6B663F8818F}</Project>
+      <Name>BbBlackBox.Service</Name>
+      <Private>False</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\BbCoordinate2D\BbCoordinate2D.csproj">
+      <Project>{8340eee5-fc71-4449-95e2-bc9275fd9136}</Project>
+      <Name>BbCoordinate2D</Name>
+      <Private>False</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\BbCoordinate3D\BbCoordinate3D.csproj">
+      <Project>{47806053-a99b-4b3a-b988-a578b1d19152}</Project>
+      <Name>BbCoordinate3D</Name>
+      <Private>False</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\BbDirection2D\BbDirection2D.csproj">
+      <Project>{8a844f03-427d-4f90-a7ae-297b75215024}</Project>
+      <Name>BbDirection2D</Name>
+      <Private>False</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\BbDirection3D\BbDirection3D.csproj">
+      <Project>{a8b8edc7-0156-481e-8919-ca4c26a40cef}</Project>
+      <Name>BbDirection3D</Name>
+      <Private>False</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\BbPosition2D\BbPosition2D.csproj">
+      <Project>{5918b72d-8fa3-429a-8637-f8852b022a85}</Project>
+      <Name>BbPosition2D</Name>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+      <Private>False</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\BbPosition3D\BbPosition3D.csproj">
+      <Project>{E165A323-F91F-4AB1-8074-1D2E7D3A8CFE}</Project>
+      <Name>BbPosition3D</Name>
+      <Private>False</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\BbUnit\BbUnit.csproj">
+      <Project>{0DCA5DCF-CD8B-40B5-A018-1C7A57CCDAF9}</Project>
+      <Name>BbUnit</Name>
+      <Private>False</Private>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

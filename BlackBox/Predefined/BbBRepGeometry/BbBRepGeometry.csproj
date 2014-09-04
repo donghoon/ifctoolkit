@@ -1,0 +1,92 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{7D0D6CF9-C217-4F55-9D86-BE923305257A}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>BbBRepGeometry</RootNamespace>
+    <AssemblyName>BbBRepGeometry</AssemblyName>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>Svn</SccProjectName>
+    <SccLocalPath>Svn</SccLocalPath>
+    <SccAuxPath>Svn</SccAuxPath>
+    <SccProvider>SubversionScc</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>True</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>False</Optimize>
+    <OutputPath>..\..\..\Library\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>True</Optimize>
+    <OutputPath>..\..\..\Library\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BbBRepGeometry.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Ifc\IFC2X3\IFC2X3.csproj">
+      <Project>{C0590489-A0E9-482A-9F2F-9E50E0ACA698}</Project>
+      <Name>IFC2X3</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Part21\EBInstanceModel\EBInstanceModel.csproj">
+      <Project>{AD0E267B-5397-4C62-B5D9-449E0FD1AF1F}</Project>
+      <Name>EBInstanceModel</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Service\BbBlackBox.Service.csproj">
+      <Project>{CDABBF36-99FD-4537-B07A-C6B663F8818F}</Project>
+      <Name>BbBlackBox.Service</Name>
+      <Private>False</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\BbCoordinate3D\BbCoordinate3D.csproj">
+      <Project>{47806053-A99B-4B3A-B988-A578B1D19152}</Project>
+      <Name>BbCoordinate3D</Name>
+      <Private>False</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\BbElementGeometry\BbElementGeometry.csproj">
+      <Project>{6660A463-AE43-4BAF-9C70-E11A509212EC}</Project>
+      <Name>BbElementGeometry</Name>
+      <Private>False</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\BbFace\BbFace.csproj">
+      <Project>{F1A86EC5-259E-4F4C-B4A1-B729C31C7AA0}</Project>
+      <Name>BbFace</Name>
+      <Private>False</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\BbHeaderSetting\BbHeaderSetting.csproj">
+      <Project>{2AE66BAE-97B8-479E-BE7B-750D7680C0F2}</Project>
+      <Name>BbHeaderSetting</Name>
+      <Private>False</Private>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

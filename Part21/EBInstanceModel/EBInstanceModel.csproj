@@ -1,0 +1,103 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{AD0E267B-5397-4C62-B5D9-449E0FD1AF1F}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>EbInstanceModel</RootNamespace>
+    <AssemblyName>EbInstanceModel</AssemblyName>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>Svn</SccProjectName>
+    <SccLocalPath>Svn</SccLocalPath>
+    <SccAuxPath>Svn</SccAuxPath>
+    <SccProvider>SubversionScc</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>True</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>False</Optimize>
+    <OutputPath>..\..\Library\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>True</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Windows.Forms" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BaseTypes\BaseType.cs" />
+    <Compile Include="BaseTypes\BOOLEAN.cs" />
+    <Compile Include="DataSection\ComplexInstance.cs" />
+    <Compile Include="HeaderSection\CONTEXT_NAME.cs" />
+    <Compile Include="EbConstants.cs" />
+    <Compile Include="EarlyBindingInstanceModel.cs" />
+    <Compile Include="EbInstanceAttributes.cs" />
+    <Compile Include="HeaderSection\EXCHANGE_STRUCTURE_IDENTIFIER.cs" />
+    <Compile Include="HeaderSection\FILE_DESCRIPTION.cs" />
+    <Compile Include="HeaderSection\FILE_NAME.cs" />
+    <Compile Include="HeaderSection\FILE_POPULATION.cs" />
+    <Compile Include="HeaderSection\FILE_SCHEMA.cs" />
+    <Compile Include="HeaderSection\HeaderSection.cs" />
+    <Compile Include="BaseTypes\INTEGER.cs" />
+    <Compile Include="HeaderSection\LANGUAGE_NAME.cs" />
+    <Compile Include="BaseTypes\LOGICAL.cs" />
+    <Compile Include="BaseTypes\NUMBER.cs" />
+    <Compile Include="HeaderSection\HeaderInstance.cs" />
+    <Compile Include="P21Base.cs" />
+    <Compile Include="DataSection\P21Instance.cs" />
+    <Compile Include="P21InstanceDictionary.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="BaseTypes\REAL.cs" />
+    <Compile Include="HeaderSection\SCHEMA_NAME.cs" />
+    <Compile Include="HeaderSection\SECTION_CONTEXT.cs" />
+    <Compile Include="HeaderSection\SECTION_LANGUAGE.cs" />
+    <Compile Include="HeaderSection\SECTION_NAME.cs" />
+    <Compile Include="BaseTypes\STRING.cs" />
+    <Compile Include="BaseTypes\BINARY.cs" />
+    <Compile Include="ListExtensions.cs" />
+    <Compile Include="P21Collection.cs" />
+    <Compile Include="P21Enumerator.cs" />
+    <Compile Include="SystemService.cs" />
+    <Compile Include="HeaderSection\TIME_STAMP_TEXT.cs" />
+    <Compile Include="WriterService.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="NLog.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Express\SchemaModel\SchemaModel.csproj">
+      <Project>{48cd73a9-7d6a-4f2f-97ef-0bf95b47582c}</Project>
+      <Name>SchemaModel</Name>
+      <Private>False</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\InstanceModel\InstanceModel.csproj">
+      <Project>{1c5706c6-341b-4a91-b06c-6be2fd928677}</Project>
+      <Name>InstanceModel</Name>
+      <Private>False</Private>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

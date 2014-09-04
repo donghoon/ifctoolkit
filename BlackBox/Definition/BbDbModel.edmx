@@ -1,0 +1,992 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="BlackBox.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+  <EntityContainer Name="BlackBoxStoreContainer">
+    <EntitySet Name="Definitions" EntityType="BlackBox.Store.Definitions" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="MvdExchanges" EntityType="BlackBox.Store.MvdExchanges" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="NameSpaces" EntityType="BlackBox.Store.NameSpaces" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Definitions_BbDefinition" EntityType="BlackBox.Store.Definitions_BbDefinition" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Definitions_SEntity" EntityType="BlackBox.Store.Definitions_SEntity" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Definitions_AttributeDefinition" EntityType="BlackBox.Store.Definitions_AttributeDefinition" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Definitions_EntityAttribute" EntityType="BlackBox.Store.Definitions_EntityAttribute" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Definitions_BbTypeAttribute" EntityType="BlackBox.Store.Definitions_BbTypeAttribute" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Definitions_MvdDefinition" EntityType="BlackBox.Store.Definitions_MvdDefinition" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="SEntityBbDefinition" EntityType="BlackBox.Store.SEntityBbDefinition" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="BbDefinitionNameSpace" EntityType="BlackBox.Store.BbDefinitionNameSpace" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="BbDefinitionNameSpace1" EntityType="BlackBox.Store.BbDefinitionNameSpace1" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="BbHierarchy" Association="BlackBox.Store.BbHierarchy">
+      <End Role="BbDefinition" EntitySet="Definitions_BbDefinition" />
+      <End Role="BbDefinitionOfSubTypes" EntitySet="Definitions_BbDefinition" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SEntityBbDefinition_SEntity" Association="BlackBox.Store.FK_SEntityBbDefinition_SEntity">
+      <End Role="SEntity" EntitySet="Definitions_SEntity" />
+      <End Role="SEntityBbDefinition" EntitySet="SEntityBbDefinition" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SEntityBbDefinition_BbDefinition" Association="BlackBox.Store.FK_SEntityBbDefinition_BbDefinition">
+      <End Role="BbDefinition" EntitySet="Definitions_BbDefinition" />
+      <End Role="SEntityBbDefinition" EntitySet="SEntityBbDefinition" />
+    </AssociationSet>
+    <AssociationSet Name="EntityAttributeBbDefinition" Association="BlackBox.Store.EntityAttributeBbDefinition">
+      <End Role="EntityAttribute" EntitySet="Definitions_EntityAttribute" />
+      <End Role="BbDefinition" EntitySet="Definitions_BbDefinition" />
+    </AssociationSet>
+    <AssociationSet Name="EntityAttributeSEntity" Association="BlackBox.Store.EntityAttributeSEntity">
+      <End Role="EntityAttribute" EntitySet="Definitions_EntityAttribute" />
+      <End Role="SEntity" EntitySet="Definitions_SEntity" />
+    </AssociationSet>
+    <AssociationSet Name="BbTypeAttributesList" Association="BlackBox.Store.BbTypeAttributeBbDefinition">
+      <End Role="BbTypeAttribute" EntitySet="Definitions_BbTypeAttribute" />
+      <End Role="BbDefinition" EntitySet="Definitions_BbDefinition" />
+    </AssociationSet>
+    <AssociationSet Name="BbTypeForAttribute" Association="BlackBox.Store.BbTypeForAttribute">
+      <End Role="BbDefinition" EntitySet="Definitions_BbDefinition" />
+      <End Role="BbTypeAttribute" EntitySet="Definitions_BbTypeAttribute" />
+    </AssociationSet>
+    <AssociationSet Name="NameSpaceAciExchange" Association="BlackBox.Store.NameSpaceAciExchange">
+      <End Role="NameSpace" EntitySet="NameSpaces" />
+      <End Role="AciExchange" EntitySet="MvdExchanges" />
+    </AssociationSet>
+    <AssociationSet Name="AciExchangeMvdDefinition" Association="BlackBox.Store.AciExchangeMvdDefinition">
+      <End Role="AciExchange" EntitySet="MvdExchanges" />
+      <End Role="MvdDefinition" EntitySet="Definitions_MvdDefinition" />
+    </AssociationSet>
+    <AssociationSet Name="FK_BbDefinitionNameSpace_BbDefinition" Association="BlackBox.Store.FK_BbDefinitionNameSpace_BbDefinition">
+      <End Role="BbDefinition" EntitySet="Definitions_BbDefinition" />
+      <End Role="BbDefinitionNameSpace" EntitySet="BbDefinitionNameSpace" />
+    </AssociationSet>
+    <AssociationSet Name="FK_BbDefinitionNameSpace_NameSpace" Association="BlackBox.Store.FK_BbDefinitionNameSpace_NameSpace">
+      <End Role="NameSpace" EntitySet="NameSpaces" />
+      <End Role="BbDefinitionNameSpace" EntitySet="BbDefinitionNameSpace" />
+    </AssociationSet>
+    <AssociationSet Name="FK_BbDefinitionNameSpace1_BbDefinition" Association="BlackBox.Store.FK_BbDefinitionNameSpace1_BbDefinition">
+      <End Role="BbDefinition" EntitySet="Definitions_BbDefinition" />
+      <End Role="BbDefinitionNameSpace1" EntitySet="BbDefinitionNameSpace1" />
+    </AssociationSet>
+    <AssociationSet Name="FK_BbDefinitionNameSpace1_NameSpace" Association="BlackBox.Store.FK_BbDefinitionNameSpace1_NameSpace">
+      <End Role="NameSpace" EntitySet="NameSpaces" />
+      <End Role="BbDefinitionNameSpace1" EntitySet="BbDefinitionNameSpace1" />
+    </AssociationSet>
+    <AssociationSet Name="BbDefinitionBbDefinition" Association="BlackBox.Store.BbDefinitionBbDefinition">
+      <End Role="BbDefinition" EntitySet="Definitions_BbDefinition" />
+      <End Role="BbDefinition1" EntitySet="Definitions_BbDefinition" />
+    </AssociationSet>
+    <AssociationSet Name="FK_BbDefinition_inherits_Definition" Association="BlackBox.Store.FK_BbDefinition_inherits_Definition">
+      <End Role="Definition" EntitySet="Definitions" />
+      <End Role="BbDefinition" EntitySet="Definitions_BbDefinition" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SEntity_inherits_Definition" Association="BlackBox.Store.FK_SEntity_inherits_Definition">
+      <End Role="Definition" EntitySet="Definitions" />
+      <End Role="SEntity" EntitySet="Definitions_SEntity" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AttributeDefinition_inherits_Definition" Association="BlackBox.Store.FK_AttributeDefinition_inherits_Definition">
+      <End Role="Definition" EntitySet="Definitions" />
+      <End Role="AttributeDefinition" EntitySet="Definitions_AttributeDefinition" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EntityAttribute_inherits_AttributeDefinition" Association="BlackBox.Store.FK_EntityAttribute_inherits_AttributeDefinition">
+      <End Role="AttributeDefinition" EntitySet="Definitions_AttributeDefinition" />
+      <End Role="EntityAttribute" EntitySet="Definitions_EntityAttribute" />
+    </AssociationSet>
+    <AssociationSet Name="FK_BbTypeAttribute_inherits_AttributeDefinition" Association="BlackBox.Store.FK_BbTypeAttribute_inherits_AttributeDefinition">
+      <End Role="AttributeDefinition" EntitySet="Definitions_AttributeDefinition" />
+      <End Role="BbTypeAttribute" EntitySet="Definitions_BbTypeAttribute" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MvdDefinition_inherits_Definition" Association="BlackBox.Store.FK_MvdDefinition_inherits_Definition">
+      <End Role="Definition" EntitySet="Definitions" />
+      <End Role="MvdDefinition" EntitySet="Definitions_MvdDefinition" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Definitions">
+    <Key>
+      <PropertyRef Name="Guid" />
+    </Key>
+    <Property Name="Guid" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="InterpretedName" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="Description" Type="nvarchar(max)" Nullable="true" />
+  </EntityType>
+  <EntityType Name="MvdExchanges">
+    <Key>
+      <PropertyRef Name="Guid" />
+    </Key>
+    <Property Name="Guid" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="ExchangeMaker" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="EmNumber" Type="int" Nullable="true" />
+    <Property Name="Title" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="ProjectStage" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="Disciplines" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="DiscriptionPurpose" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="DescriptionIncludes" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="DescriptionDetail" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="DescriptionMajor" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="DescriptionSpecial" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="SoftwareExport" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="SoftwareImport" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="SoftwareNotes" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="CreationDate" Type="datetime" Nullable="true" />
+    <Property Name="RelatedModel" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="OfInterest" Type="bit" Nullable="false" />
+    <Property Name="IsDeleted" Type="bit" Nullable="false" />
+    <Property Name="NameSpaceGuid" Type="uniqueidentifier" Nullable="false" />
+  </EntityType>
+  <EntityType Name="NameSpaces">
+    <Key>
+      <PropertyRef Name="Guid" />
+    </Key>
+    <Property Name="Guid" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Description" Type="nvarchar(max)" Nullable="true" />
+  </EntityType>
+  <EntityType Name="Definitions_BbDefinition">
+    <Key>
+      <PropertyRef Name="Guid" />
+    </Key>
+    <Property Name="CreationDate" Type="datetime" Nullable="false" />
+    <Property Name="Creator" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="FkSuperTypeGuid" Type="uniqueidentifier" Nullable="true" />
+    <Property Name="FkCompositionGuid" Type="uniqueidentifier" Nullable="true" />
+    <Property Name="Guid" Type="uniqueidentifier" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Definitions_SEntity">
+    <Key>
+      <PropertyRef Name="Guid" />
+    </Key>
+    <Property Name="Schema" Type="nvarchar" Nullable="false" DefaultValue="2x3" MaxLength="8" />
+    <Property Name="Guid" Type="uniqueidentifier" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Definitions_AttributeDefinition">
+    <Key>
+      <PropertyRef Name="Guid" />
+    </Key>
+    <Property Name="DataType" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="LowerBound" Type="smallint" Nullable="false" DefaultValue="1" />
+    <Property Name="UpperBound" Type="smallint" Nullable="false" DefaultValue="1" />
+    <Property Name="Guid" Type="uniqueidentifier" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Definitions_EntityAttribute">
+    <Key>
+      <PropertyRef Name="Guid" />
+    </Key>
+    <Property Name="IfcEntityAttribute" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="FkBbDefinitionGuid" Type="uniqueidentifier" Nullable="true" />
+    <Property Name="FkSEntityGuid" Type="uniqueidentifier" Nullable="true" />
+    <Property Name="Guid" Type="uniqueidentifier" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Definitions_BbTypeAttribute">
+    <Key>
+      <PropertyRef Name="Guid" />
+    </Key>
+    <Property Name="FkBbGuidInAttributes" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="FkBbDefinitionGuid" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Guid" Type="uniqueidentifier" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Definitions_MvdDefinition">
+    <Key>
+      <PropertyRef Name="Guid" />
+    </Key>
+    <Property Name="Creator" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="CreationDate" Type="datetime" Nullable="true" />
+    <Property Name="Version" Type="int" Nullable="true" />
+    <Property Name="IsDeleted" Type="bit" Nullable="false" />
+    <Property Name="definition" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="MvdExchangeGuid" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Guid" Type="uniqueidentifier" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SEntityBbDefinition">
+    <Key>
+      <PropertyRef Name="SEntities_Guid" />
+      <PropertyRef Name="BbDefinitions_Guid" />
+    </Key>
+    <Property Name="SEntities_Guid" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="BbDefinitions_Guid" Type="uniqueidentifier" Nullable="false" />
+  </EntityType>
+  <EntityType Name="BbDefinitionNameSpace">
+    <Key>
+      <PropertyRef Name="BbDefinitions_Guid" />
+      <PropertyRef Name="NameSpaces_Guid" />
+    </Key>
+    <Property Name="BbDefinitions_Guid" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="NameSpaces_Guid" Type="uniqueidentifier" Nullable="false" />
+  </EntityType>
+  <EntityType Name="BbDefinitionNameSpace1">
+    <Key>
+      <PropertyRef Name="RootBbs_Guid" />
+      <PropertyRef Name="RootBbsInNS_Guid" />
+    </Key>
+    <Property Name="RootBbs_Guid" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="RootBbsInNS_Guid" Type="uniqueidentifier" Nullable="false" />
+  </EntityType>
+  <Association Name="BbHierarchy">
+    <End Role="BbDefinition" Type="BlackBox.Store.Definitions_BbDefinition" Multiplicity="*" />
+    <End Role="BbDefinitionOfSubTypes" Type="BlackBox.Store.Definitions_BbDefinition" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="BbDefinitionOfSubTypes">
+        <PropertyRef Name="Guid" />
+      </Principal>
+      <Dependent Role="BbDefinition">
+        <PropertyRef Name="FkSuperTypeGuid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="EntityAttributeBbDefinition">
+    <End Role="EntityAttribute" Type="BlackBox.Store.Definitions_EntityAttribute" Multiplicity="*" />
+    <End Role="BbDefinition" Type="BlackBox.Store.Definitions_BbDefinition" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="BbDefinition">
+        <PropertyRef Name="Guid" />
+      </Principal>
+      <Dependent Role="EntityAttribute">
+        <PropertyRef Name="FkBbDefinitionGuid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="EntityAttributeSEntity">
+    <End Role="EntityAttribute" Type="BlackBox.Store.Definitions_EntityAttribute" Multiplicity="*" />
+    <End Role="SEntity" Type="BlackBox.Store.Definitions_SEntity" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="SEntity">
+        <PropertyRef Name="Guid" />
+      </Principal>
+      <Dependent Role="EntityAttribute">
+        <PropertyRef Name="FkSEntityGuid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="BbTypeAttributeBbDefinition">
+    <End Role="BbTypeAttribute" Type="BlackBox.Store.Definitions_BbTypeAttribute" Multiplicity="*" />
+    <End Role="BbDefinition" Type="BlackBox.Store.Definitions_BbDefinition" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="BbDefinition">
+        <PropertyRef Name="Guid" />
+      </Principal>
+      <Dependent Role="BbTypeAttribute">
+        <PropertyRef Name="FkBbGuidInAttributes" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="BbTypeForAttribute">
+    <End Role="BbDefinition" Type="BlackBox.Store.Definitions_BbDefinition" Multiplicity="1" />
+    <End Role="BbTypeAttribute" Type="BlackBox.Store.Definitions_BbTypeAttribute" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="BbDefinition">
+        <PropertyRef Name="Guid" />
+      </Principal>
+      <Dependent Role="BbTypeAttribute">
+        <PropertyRef Name="FkBbDefinitionGuid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="NameSpaceAciExchange">
+    <End Role="NameSpace" Type="BlackBox.Store.NameSpaces" Multiplicity="1" />
+    <End Role="AciExchange" Type="BlackBox.Store.MvdExchanges" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="NameSpace">
+        <PropertyRef Name="Guid" />
+      </Principal>
+      <Dependent Role="AciExchange">
+        <PropertyRef Name="NameSpaceGuid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="AciExchangeMvdDefinition">
+    <End Role="AciExchange" Type="BlackBox.Store.MvdExchanges" Multiplicity="1" />
+    <End Role="MvdDefinition" Type="BlackBox.Store.Definitions_MvdDefinition" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AciExchange">
+        <PropertyRef Name="Guid" />
+      </Principal>
+      <Dependent Role="MvdDefinition">
+        <PropertyRef Name="MvdExchangeGuid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="BbDefinitionBbDefinition">
+    <End Role="BbDefinition" Type="BlackBox.Store.Definitions_BbDefinition" Multiplicity="0..1" />
+    <End Role="BbDefinition1" Type="BlackBox.Store.Definitions_BbDefinition" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="BbDefinition">
+        <PropertyRef Name="Guid" />
+      </Principal>
+      <Dependent Role="BbDefinition1">
+        <PropertyRef Name="FkCompositionGuid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SEntityBbDefinition_SEntity">
+    <End Role="SEntity" Type="BlackBox.Store.Definitions_SEntity" Multiplicity="1" />
+    <End Role="SEntityBbDefinition" Type="BlackBox.Store.SEntityBbDefinition" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SEntity">
+        <PropertyRef Name="Guid" />
+      </Principal>
+      <Dependent Role="SEntityBbDefinition">
+        <PropertyRef Name="SEntities_Guid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SEntityBbDefinition_BbDefinition">
+    <End Role="SEntityBbDefinition" Type="BlackBox.Store.SEntityBbDefinition" Multiplicity="*" />
+    <End Role="BbDefinition" Type="BlackBox.Store.Definitions_BbDefinition" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="BbDefinition">
+        <PropertyRef Name="Guid" />
+      </Principal>
+      <Dependent Role="SEntityBbDefinition">
+        <PropertyRef Name="BbDefinitions_Guid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_BbDefinitionNameSpace_BbDefinition">
+    <End Role="BbDefinition" Type="BlackBox.Store.Definitions_BbDefinition" Multiplicity="1" />
+    <End Role="BbDefinitionNameSpace" Type="BlackBox.Store.BbDefinitionNameSpace" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="BbDefinition">
+        <PropertyRef Name="Guid" />
+      </Principal>
+      <Dependent Role="BbDefinitionNameSpace">
+        <PropertyRef Name="BbDefinitions_Guid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_BbDefinitionNameSpace_NameSpace">
+    <End Role="BbDefinitionNameSpace" Type="BlackBox.Store.BbDefinitionNameSpace" Multiplicity="*" />
+    <End Role="NameSpace" Type="BlackBox.Store.NameSpaces" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="NameSpace">
+        <PropertyRef Name="Guid" />
+      </Principal>
+      <Dependent Role="BbDefinitionNameSpace">
+        <PropertyRef Name="NameSpaces_Guid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_BbDefinitionNameSpace1_BbDefinition">
+    <End Role="BbDefinition" Type="BlackBox.Store.Definitions_BbDefinition" Multiplicity="1" />
+    <End Role="BbDefinitionNameSpace1" Type="BlackBox.Store.BbDefinitionNameSpace1" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="BbDefinition">
+        <PropertyRef Name="Guid" />
+      </Principal>
+      <Dependent Role="BbDefinitionNameSpace1">
+        <PropertyRef Name="RootBbs_Guid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_BbDefinitionNameSpace1_NameSpace">
+    <End Role="BbDefinitionNameSpace1" Type="BlackBox.Store.BbDefinitionNameSpace1" Multiplicity="*" />
+    <End Role="NameSpace" Type="BlackBox.Store.NameSpaces" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="NameSpace">
+        <PropertyRef Name="Guid" />
+      </Principal>
+      <Dependent Role="BbDefinitionNameSpace1">
+        <PropertyRef Name="RootBbsInNS_Guid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_BbDefinition_inherits_Definition">
+    <End Role="Definition" Type="BlackBox.Store.Definitions" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="BbDefinition" Type="BlackBox.Store.Definitions_BbDefinition" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Definition">
+        <PropertyRef Name="Guid" />
+      </Principal>
+      <Dependent Role="BbDefinition">
+        <PropertyRef Name="Guid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SEntity_inherits_Definition">
+    <End Role="Definition" Type="BlackBox.Store.Definitions" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="SEntity" Type="BlackBox.Store.Definitions_SEntity" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Definition">
+        <PropertyRef Name="Guid" />
+      </Principal>
+      <Dependent Role="SEntity">
+        <PropertyRef Name="Guid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AttributeDefinition_inherits_Definition">
+    <End Role="Definition" Type="BlackBox.Store.Definitions" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AttributeDefinition" Type="BlackBox.Store.Definitions_AttributeDefinition" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Definition">
+        <PropertyRef Name="Guid" />
+      </Principal>
+      <Dependent Role="AttributeDefinition">
+        <PropertyRef Name="Guid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EntityAttribute_inherits_AttributeDefinition">
+    <End Role="AttributeDefinition" Type="BlackBox.Store.Definitions_AttributeDefinition" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="EntityAttribute" Type="BlackBox.Store.Definitions_EntityAttribute" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="AttributeDefinition">
+        <PropertyRef Name="Guid" />
+      </Principal>
+      <Dependent Role="EntityAttribute">
+        <PropertyRef Name="Guid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_BbTypeAttribute_inherits_AttributeDefinition">
+    <End Role="AttributeDefinition" Type="BlackBox.Store.Definitions_AttributeDefinition" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="BbTypeAttribute" Type="BlackBox.Store.Definitions_BbTypeAttribute" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="AttributeDefinition">
+        <PropertyRef Name="Guid" />
+      </Principal>
+      <Dependent Role="BbTypeAttribute">
+        <PropertyRef Name="Guid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MvdDefinition_inherits_Definition">
+    <End Role="Definition" Type="BlackBox.Store.Definitions" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="MvdDefinition" Type="BlackBox.Store.Definitions_MvdDefinition" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Definition">
+        <PropertyRef Name="Guid" />
+      </Principal>
+      <Dependent Role="MvdDefinition">
+        <PropertyRef Name="Guid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema xmlns="http://schemas.microsoft.com/ado/2008/09/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="BlackBox" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation">
+        <EntityContainer Name="BbContainer" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Definitions" EntityType="BlackBox.Definition" />
+          <AssociationSet Name="BbHierarchy" Association="BlackBox.BbHierarchy">
+            <End Role="BbDefinition" EntitySet="Definitions" />
+            <End Role="BbDefinitionOfSubTypes" EntitySet="Definitions" />
+          </AssociationSet>
+          <AssociationSet Name="SEntityBbDefinition" Association="BlackBox.SEntityBbDefinition">
+            <End EntitySet="Definitions" Role="SEntity" />
+            <End EntitySet="Definitions" Role="BbDefinition" />
+          </AssociationSet>
+          <AssociationSet Name="EntityAttributeBbDefinition" Association="BlackBox.EntityAttributeBbDefinition">
+            <End EntitySet="Definitions" Role="EntityAttribute" />
+            <End EntitySet="Definitions" Role="BbDefinition" />
+          </AssociationSet>
+          <AssociationSet Name="EntityAttributeSEntity" Association="BlackBox.EntityAttributeSEntity">
+            <End Role="EntityAttribute" EntitySet="Definitions" />
+            <End Role="SEntity" EntitySet="Definitions" />
+          </AssociationSet>
+          <AssociationSet Name="BbTypeAttributesList" Association="BlackBox.BbTypeAttributeBbDefinition">
+            <End Role="BbTypeAttribute" EntitySet="Definitions" />
+            <End Role="BbDefinition" EntitySet="Definitions" />
+          </AssociationSet>
+          <AssociationSet Name="BbTypeForAttribute" Association="BlackBox.BbTypeForAttribute">
+            <End Role="BbDefinition" EntitySet="Definitions" />
+            <End Role="BbTypeAttribute" EntitySet="Definitions" />
+          </AssociationSet>
+          <EntitySet Name="MvdExchanges" EntityType="BlackBox.MvdExchange" />
+          <EntitySet Name="NameSpaces" EntityType="BlackBox.NameSpace" />
+          <AssociationSet Name="NameSpaceAciExchange" Association="BlackBox.NameSpaceAciExchange">
+            <End Role="NameSpace" EntitySet="NameSpaces" />
+            <End Role="AciExchange" EntitySet="MvdExchanges" />
+          </AssociationSet>
+          <AssociationSet Name="AciExchangeMvdDefinition" Association="BlackBox.AciExchangeMvdDefinition">
+            <End Role="AciExchange" EntitySet="MvdExchanges" />
+            <End Role="MvdDefinition" EntitySet="Definitions" />
+          </AssociationSet>
+          <AssociationSet Name="BbDefinitionNameSpace" Association="BlackBox.BbDefinitionNameSpace">
+            <End Role="BbDefinition" EntitySet="Definitions" />
+            <End Role="NameSpace" EntitySet="NameSpaces" />
+          </AssociationSet>
+          <AssociationSet Name="BbDefinitionNameSpace1" Association="BlackBox.BbDefinitionNameSpace1">
+            <End Role="BbDefinition" EntitySet="Definitions" />
+            <End Role="NameSpace" EntitySet="NameSpaces" />
+          </AssociationSet>
+          <AssociationSet Name="BbDefinitionBbDefinition" Association="BlackBox.BbDefinitionBbDefinition">
+            <End Role="BbDefinition" EntitySet="Definitions" />
+            <End Role="BbDefinition1" EntitySet="Definitions" />
+          </AssociationSet>
+          </EntityContainer>
+        <EntityType Name="Definition" Abstract="false">
+          <Key>
+            <PropertyRef Name="Guid" />
+          </Key>
+          <Property Type="Guid" Name="Guid" Nullable="false" annotation:StoreGeneratedPattern="None" />
+          <Property Type="String" Name="Name" Nullable="false" />
+          <Property Type="String" Name="InterpretedName" Nullable="true" />
+          <Property Type="String" Name="Description" Nullable="true" />
+        </EntityType>
+        <EntityType Name="BbDefinition" BaseType="BlackBox.Definition">
+          <NavigationProperty Name="SuperType" Relationship="BlackBox.BbHierarchy" FromRole="BbDefinition" ToRole="BbDefinitionOfSubTypes" />
+          <NavigationProperty Name="SubTypes" Relationship="BlackBox.BbHierarchy" FromRole="BbDefinitionOfSubTypes" ToRole="BbDefinition" />
+          <Property Type="DateTime" Name="CreationDate" Nullable="false" />
+          <Property Type="String" Name="Creator" Nullable="false" />
+          <NavigationProperty Name="SEntities" Relationship="BlackBox.SEntityBbDefinition" FromRole="BbDefinition" ToRole="SEntity" />
+          <NavigationProperty Name="EntityAttributes" Relationship="BlackBox.EntityAttributeBbDefinition" FromRole="BbDefinition" ToRole="EntityAttribute" />
+          <Property Type="Guid" Name="FkSuperTypeGuid" Nullable="true" />
+          <NavigationProperty Name="BbTypeAttributes" Relationship="BlackBox.BbTypeAttributeBbDefinition" FromRole="BbDefinition" ToRole="BbTypeAttribute" />
+          <NavigationProperty Name="UsedInAttributes" Relationship="BlackBox.BbTypeForAttribute" FromRole="BbDefinition" ToRole="BbTypeAttribute" />
+          <NavigationProperty Name="NameSpaces" Relationship="BlackBox.BbDefinitionNameSpace" FromRole="BbDefinition" ToRole="NameSpace" />
+          <NavigationProperty Name="RootBbsInNS" Relationship="BlackBox.BbDefinitionNameSpace1" FromRole="BbDefinition" ToRole="NameSpace" />
+          <NavigationProperty Name="BbComposition" Relationship="BlackBox.BbDefinitionBbDefinition" FromRole="BbDefinition" ToRole="BbDefinition1" />
+          <Property Type="Guid" Name="FkCompositionGuid" Nullable="true" />
+        </EntityType>
+        <EntityType Name="AttributeDefinition" BaseType="BlackBox.Definition">
+          <Property Type="String" Name="DataType" Nullable="false" annotation:StoreGeneratedPattern="None" />
+          <Property Type="Int16" Name="LowerBound" Nullable="false" DefaultValue="1" />
+          <Property Type="Int16" Name="UpperBound" Nullable="false" DefaultValue="1" />
+        </EntityType>
+        <Association Name="BbHierarchy">
+          <End Type="BlackBox.BbDefinition" Role="BbDefinition" Multiplicity="*" />
+          <End Type="BlackBox.BbDefinition" Role="BbDefinitionOfSubTypes" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="BbDefinitionOfSubTypes">
+              <PropertyRef Name="Guid" />
+            </Principal>
+            <Dependent Role="BbDefinition">
+              <PropertyRef Name="FkSuperTypeGuid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="BbTypeAttribute" BaseType="BlackBox.AttributeDefinition" >
+          <NavigationProperty Name="BbBelongsTo" Relationship="BlackBox.BbTypeAttributeBbDefinition" FromRole="BbTypeAttribute" ToRole="BbDefinition" />
+          <Property Type="Guid" Name="FkBbGuidInAttributes" Nullable="false" />
+          <NavigationProperty Name="BbTypeOfAttribute" Relationship="BlackBox.BbTypeForAttribute" FromRole="BbTypeAttribute" ToRole="BbDefinition" />
+          <Property Type="Guid" Name="FkBbDefinitionGuid" Nullable="false" />
+        </EntityType>
+        <EntityType Name="EntityAttribute" BaseType="BlackBox.AttributeDefinition" >
+          <Property Type="String" Name="IfcEntityAttribute" Nullable="true" />
+          <NavigationProperty Name="BbDefinition" Relationship="BlackBox.EntityAttributeBbDefinition" FromRole="EntityAttribute" ToRole="BbDefinition" />
+          <Property Type="Guid" Name="FkBbDefinitionGuid" Nullable="true" />
+          <NavigationProperty Name="SEntity" Relationship="BlackBox.EntityAttributeSEntity" FromRole="EntityAttribute" ToRole="SEntity" />
+          <Property Type="Guid" Name="FkSEntityGuid" Nullable="true" />
+        </EntityType>
+        <EntityType Name="SEntity" BaseType="BlackBox.Definition">
+          <Property Name="Schema" Nullable="false" DefaultValue="2x3" MaxLength="8" Type="String" />
+          <NavigationProperty Name="BbDefinitions" Relationship="BlackBox.SEntityBbDefinition" FromRole="SEntity" ToRole="BbDefinition" />
+          <NavigationProperty Name="EntityAttributes" Relationship="BlackBox.EntityAttributeSEntity" FromRole="SEntity" ToRole="EntityAttribute" />
+        </EntityType>
+        <Association Name="SEntityBbDefinition">
+          <End Type="BlackBox.SEntity" Multiplicity="*" Role="SEntity" />
+          <End Type="BlackBox.BbDefinition" Multiplicity="*" Role="BbDefinition" />
+        </Association>
+        <Association Name="EntityAttributeBbDefinition">
+          <End Type="BlackBox.EntityAttribute" Multiplicity="*" Role="EntityAttribute" />
+          <End Type="BlackBox.BbDefinition" Multiplicity="0..1" Role="BbDefinition" />
+          <ReferentialConstraint>
+            <Principal Role="BbDefinition">
+              <PropertyRef Name="Guid" />
+            </Principal>
+            <Dependent Role="EntityAttribute">
+              <PropertyRef Name="FkBbDefinitionGuid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="EntityAttributeSEntity">
+          <End Type="BlackBox.EntityAttribute" Role="EntityAttribute" Multiplicity="*" />
+          <End Type="BlackBox.SEntity" Role="SEntity" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="SEntity">
+              <PropertyRef Name="Guid" />
+            </Principal>
+            <Dependent Role="EntityAttribute">
+              <PropertyRef Name="FkSEntityGuid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="BbTypeAttributeBbDefinition">
+          <End Type="BlackBox.BbTypeAttribute" Role="BbTypeAttribute" Multiplicity="*" />
+          <End Type="BlackBox.BbDefinition" Role="BbDefinition" Multiplicity="1" />
+          <ReferentialConstraint>
+            <Principal Role="BbDefinition">
+              <PropertyRef Name="Guid" />
+            </Principal>
+            <Dependent Role="BbTypeAttribute">
+              <PropertyRef Name="FkBbGuidInAttributes" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="BbTypeForAttribute">
+          <End Type="BlackBox.BbDefinition" Role="BbDefinition" Multiplicity="1" />
+          <End Type="BlackBox.BbTypeAttribute" Role="BbTypeAttribute" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BbDefinition">
+              <PropertyRef Name="Guid" />
+            </Principal>
+            <Dependent Role="BbTypeAttribute">
+              <PropertyRef Name="FkBbDefinitionGuid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="MvdDefinition" BaseType="BlackBox.Definition" >
+          <Property Type="String" Name="Creator" Nullable="true" />
+          <Property Type="DateTime" Name="CreationDate" Nullable="true" />
+          <Property Type="Int32" Name="Version" Nullable="true" />
+          <Property Type="Boolean" Name="IsDeleted" Nullable="false" />
+          <Property Type="String" Name="definition" Nullable="true" />
+          <NavigationProperty Name="MvdExchange" Relationship="BlackBox.AciExchangeMvdDefinition" FromRole="MvdDefinition" ToRole="AciExchange" />
+          <Property Type="Guid" Name="MvdExchangeGuid" Nullable="false" />
+        </EntityType>
+        <EntityType Name="MvdExchange">
+          <Key>
+            <PropertyRef Name="Guid" />
+          </Key>
+          <Property Type="Guid" Name="Guid" Nullable="false" annotation:StoreGeneratedPattern="None" />
+          <Property Type="String" Name="ExchangeMaker" Nullable="true" />
+          <Property Type="Int32" Name="EmNumber" Nullable="true" />
+          <Property Type="String" Name="Title" Nullable="false" />
+          <Property Type="String" Name="ProjectStage" Nullable="true" />
+          <Property Type="String" Name="Disciplines" Nullable="true" />
+          <Property Type="String" Name="DiscriptionPurpose" Nullable="true" />
+          <Property Type="String" Name="DescriptionIncludes" Nullable="true" />
+          <Property Type="String" Name="DescriptionDetail" Nullable="true" />
+          <Property Type="String" Name="DescriptionMajor" Nullable="true" />
+          <Property Type="String" Name="DescriptionSpecial" Nullable="true" />
+          <Property Type="String" Name="SoftwareExport" Nullable="true" />
+          <Property Type="String" Name="SoftwareImport" Nullable="true" />
+          <Property Type="String" Name="SoftwareNotes" Nullable="true" />
+          <Property Type="DateTime" Name="CreationDate" Nullable="true" />
+          <Property Type="String" Name="RelatedModel" Nullable="true" />
+          <Property Type="Boolean" Name="OfInterest" Nullable="false" />
+          <Property Type="Boolean" Name="IsDeleted" Nullable="false" />
+          <NavigationProperty Name="NameSpace" Relationship="BlackBox.NameSpaceAciExchange" FromRole="AciExchange" ToRole="NameSpace" />
+          <Property Type="Guid" Name="NameSpaceGuid" Nullable="false" />
+          <NavigationProperty Name="MvdDefinitions" Relationship="BlackBox.AciExchangeMvdDefinition" FromRole="AciExchange" ToRole="MvdDefinition" />
+        </EntityType>
+        <EntityType Name="NameSpace">
+          <Key>
+            <PropertyRef Name="Guid" />
+          </Key>
+          <Property Type="Guid" Name="Guid" Nullable="false" annotation:StoreGeneratedPattern="None" />
+          <Property Type="String" Name="Name" Nullable="false" />
+          <Property Type="String" Name="Description" Nullable="true" />
+          <NavigationProperty Name="MvdExchanges" Relationship="BlackBox.NameSpaceAciExchange" FromRole="NameSpace" ToRole="AciExchange" />
+          <NavigationProperty Name="BbDefinitions" Relationship="BlackBox.BbDefinitionNameSpace" FromRole="NameSpace" ToRole="BbDefinition" />
+          <NavigationProperty Name="RootBbs" Relationship="BlackBox.BbDefinitionNameSpace1" FromRole="NameSpace" ToRole="BbDefinition" />
+        </EntityType>
+        <Association Name="NameSpaceAciExchange">
+          <End Type="BlackBox.NameSpace" Role="NameSpace" Multiplicity="1" />
+          <End Type="BlackBox.MvdExchange" Role="AciExchange" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NameSpace">
+              <PropertyRef Name="Guid" />
+            </Principal>
+            <Dependent Role="AciExchange">
+              <PropertyRef Name="NameSpaceGuid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="AciExchangeMvdDefinition">
+          <End Type="BlackBox.MvdExchange" Role="AciExchange" Multiplicity="1" />
+          <End Type="BlackBox.MvdDefinition" Role="MvdDefinition" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AciExchange">
+              <PropertyRef Name="Guid" />
+            </Principal>
+            <Dependent Role="MvdDefinition">
+              <PropertyRef Name="MvdExchangeGuid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="BbDefinitionNameSpace">
+          <End Type="BlackBox.BbDefinition" Role="BbDefinition" Multiplicity="*" />
+          <End Type="BlackBox.NameSpace" Role="NameSpace" Multiplicity="*" />
+        </Association>
+        <Association Name="BbDefinitionNameSpace1">
+          <End Type="BlackBox.BbDefinition" Role="BbDefinition" Multiplicity="*" />
+          <End Type="BlackBox.NameSpace" Role="NameSpace" Multiplicity="*" />
+        </Association>
+        <Association Name="BbDefinitionBbDefinition">
+          <End Type="BlackBox.BbDefinition" Role="BbDefinition" Multiplicity="0..1" />
+          <End Type="BlackBox.BbDefinition" Role="BbDefinition1" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BbDefinition">
+              <PropertyRef Name="Guid" />
+            </Principal>
+            <Dependent Role="BbDefinition1">
+              <PropertyRef Name="FkCompositionGuid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+    <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="BlackBoxStoreContainer" CdmEntityContainer="BbContainer">
+    <EntitySetMapping Name="Definitions">
+      <EntityTypeMapping TypeName="IsTypeOf(BlackBox.Definition)">
+        <MappingFragment StoreEntitySet="Definitions">
+          <ScalarProperty Name="Guid" ColumnName="Guid" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="InterpretedName" ColumnName="InterpretedName" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+      <EntityTypeMapping TypeName="IsTypeOf(BlackBox.BbDefinition)">
+        <MappingFragment StoreEntitySet="Definitions_BbDefinition">
+          <ScalarProperty Name="Guid" ColumnName="Guid" />
+          <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+          <ScalarProperty Name="Creator" ColumnName="Creator" />
+          <ScalarProperty Name="FkSuperTypeGuid" ColumnName="FkSuperTypeGuid" />
+          <ScalarProperty Name="FkCompositionGuid" ColumnName="FkCompositionGuid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+      <EntityTypeMapping TypeName="IsTypeOf(BlackBox.SEntity)">
+        <MappingFragment StoreEntitySet="Definitions_SEntity">
+          <ScalarProperty Name="Guid" ColumnName="Guid" />
+          <ScalarProperty Name="Schema" ColumnName="Schema" />
+        </MappingFragment>
+      </EntityTypeMapping>
+      <EntityTypeMapping TypeName="IsTypeOf(BlackBox.AttributeDefinition)">
+        <MappingFragment StoreEntitySet="Definitions_AttributeDefinition">
+          <ScalarProperty Name="Guid" ColumnName="Guid" />
+          <ScalarProperty Name="DataType" ColumnName="DataType" />
+          <ScalarProperty Name="LowerBound" ColumnName="LowerBound" />
+          <ScalarProperty Name="UpperBound" ColumnName="UpperBound" />
+        </MappingFragment>
+      </EntityTypeMapping>
+      <EntityTypeMapping TypeName="IsTypeOf(BlackBox.EntityAttribute)">
+        <MappingFragment StoreEntitySet="Definitions_EntityAttribute">
+          <ScalarProperty Name="Guid" ColumnName="Guid" />
+          <ScalarProperty Name="IfcEntityAttribute" ColumnName="IfcEntityAttribute" />
+          <ScalarProperty Name="FkBbDefinitionGuid" ColumnName="FkBbDefinitionGuid" />
+          <ScalarProperty Name="FkSEntityGuid" ColumnName="FkSEntityGuid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+      <EntityTypeMapping TypeName="IsTypeOf(BlackBox.BbTypeAttribute)">
+        <MappingFragment StoreEntitySet="Definitions_BbTypeAttribute">
+          <ScalarProperty Name="Guid" ColumnName="Guid" />
+          <ScalarProperty Name="FkBbGuidInAttributes" ColumnName="FkBbGuidInAttributes" />
+          <ScalarProperty Name="FkBbDefinitionGuid" ColumnName="FkBbDefinitionGuid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+      <EntityTypeMapping TypeName="IsTypeOf(BlackBox.MvdDefinition)">
+        <MappingFragment StoreEntitySet="Definitions_MvdDefinition">
+          <ScalarProperty Name="Guid" ColumnName="Guid" />
+          <ScalarProperty Name="Creator" ColumnName="Creator" />
+          <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+          <ScalarProperty Name="Version" ColumnName="Version" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+          <ScalarProperty Name="MvdExchangeGuid" ColumnName="MvdExchangeGuid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MvdExchanges">
+      <EntityTypeMapping TypeName="IsTypeOf(BlackBox.MvdExchange)">
+        <MappingFragment StoreEntitySet="MvdExchanges">
+          <ScalarProperty Name="Guid" ColumnName="Guid" />
+          <ScalarProperty Name="ExchangeMaker" ColumnName="ExchangeMaker" />
+          <ScalarProperty Name="EmNumber" ColumnName="EmNumber" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="ProjectStage" ColumnName="ProjectStage" />
+          <ScalarProperty Name="Disciplines" ColumnName="Disciplines" />
+          <ScalarProperty Name="DiscriptionPurpose" ColumnName="DiscriptionPurpose" />
+          <ScalarProperty Name="DescriptionIncludes" ColumnName="DescriptionIncludes" />
+          <ScalarProperty Name="DescriptionDetail" ColumnName="DescriptionDetail" />
+          <ScalarProperty Name="DescriptionMajor" ColumnName="DescriptionMajor" />
+          <ScalarProperty Name="DescriptionSpecial" ColumnName="DescriptionSpecial" />
+          <ScalarProperty Name="SoftwareExport" ColumnName="SoftwareExport" />
+          <ScalarProperty Name="SoftwareImport" ColumnName="SoftwareImport" />
+          <ScalarProperty Name="SoftwareNotes" ColumnName="SoftwareNotes" />
+          <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+          <ScalarProperty Name="RelatedModel" ColumnName="RelatedModel" />
+          <ScalarProperty Name="OfInterest" ColumnName="OfInterest" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="NameSpaceGuid" ColumnName="NameSpaceGuid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="NameSpaces">
+      <EntityTypeMapping TypeName="IsTypeOf(BlackBox.NameSpace)">
+        <MappingFragment StoreEntitySet="NameSpaces">
+          <ScalarProperty Name="Guid" ColumnName="Guid" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="SEntityBbDefinition" TypeName="BlackBox.SEntityBbDefinition" StoreEntitySet="SEntityBbDefinition">
+      <EndProperty Name="SEntity">
+        <ScalarProperty Name="Guid" ColumnName="SEntities_Guid" />
+      </EndProperty>
+      <EndProperty Name="BbDefinition">
+        <ScalarProperty Name="Guid" ColumnName="BbDefinitions_Guid" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="BbDefinitionNameSpace" TypeName="BlackBox.BbDefinitionNameSpace" StoreEntitySet="BbDefinitionNameSpace">
+      <EndProperty Name="BbDefinition">
+        <ScalarProperty Name="Guid" ColumnName="BbDefinitions_Guid" />
+      </EndProperty>
+      <EndProperty Name="NameSpace">
+        <ScalarProperty Name="Guid" ColumnName="NameSpaces_Guid" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="BbDefinitionNameSpace1" TypeName="BlackBox.BbDefinitionNameSpace1" StoreEntitySet="BbDefinitionNameSpace1">
+      <EndProperty Name="BbDefinition">
+        <ScalarProperty Name="Guid" ColumnName="RootBbs_Guid" />
+      </EndProperty>
+      <EndProperty Name="NameSpace">
+        <ScalarProperty Name="Guid" ColumnName="RootBbsInNS_Guid" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping></edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <edmx:Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAsBbbly" />
+      </DesignerInfoPropertySet>
+    </edmx:Connection>
+    <edmx:Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="UseLegacyProvider" Value="True" />
+      </DesignerInfoPropertySet>
+    </edmx:Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram Name="BbDbModel" >
+        <EntityTypeShape EntityType="BlackBox.Definition" Width="1.5" PointX="4.5" PointY="1" Height="1.787985026041667" />
+        <EntityTypeShape EntityType="BlackBox.BbDefinition" Width="1.875" PointX="3" PointY="3.625" Height="3.1340950520833326" IsExpanded="true" />
+        <EntityTypeShape EntityType="BlackBox.AttributeDefinition" Width="1.75" PointX="6.25" PointY="3.625" Height="1.7879850260416665" />
+        <InheritanceConnector EntityType="BlackBox.BbDefinition" ManuallyRouted="false" >
+          <ConnectorPoint PointX="5.25" PointY="2.787985026041667" />
+          <ConnectorPoint PointX="5.25" PointY="3" />
+          <ConnectorPoint PointX="3.9375" PointY="3" />
+          <ConnectorPoint PointX="3.9375" PointY="3.625" />
+        </InheritanceConnector>
+        <InheritanceConnector EntityType="BlackBox.AttributeDefinition" ManuallyRouted="false" >
+          <ConnectorPoint PointX="5.25" PointY="2.787985026041667" />
+          <ConnectorPoint PointX="5.25" PointY="3.2500000000000009" />
+          <ConnectorPoint PointX="7.125" PointY="3.2500000000000009" />
+          <ConnectorPoint PointX="7.125" PointY="3.625" />
+        </InheritanceConnector>
+        <AssociationConnector Association="BlackBox.BbHierarchy">
+          <ConnectorPoint PointX="3.6649038461538463" PointY="6.7590950520833326" />
+          <ConnectorPoint PointX="3.6649038461538463" PointY="7.0090950520833317" />
+          <ConnectorPoint PointX="4.2230769230769232" PointY="7.0090950520833317" />
+          <ConnectorPoint PointX="4.2230769230769232" PointY="6.7590950520833326" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="BlackBox.BbTypeAttribute" Width="1.5" PointX="5.875" PointY="8" Height="1.7879850260416674" />
+        <InheritanceConnector EntityType="BlackBox.BbTypeAttribute" ManuallyRouted="false" >
+          <ConnectorPoint PointX="7.125" PointY="5.22068359375" />
+          <ConnectorPoint PointX="7.125" PointY="7.625" />
+          <ConnectorPoint PointX="6.625" PointY="7.625" />
+          <ConnectorPoint PointX="6.625" PointY="8" />
+        </InheritanceConnector>
+        <EntityTypeShape EntityType="BlackBox.EntityAttribute" Width="1.5" PointX="8.875" PointY="8" Height="1.9802864583333335" />
+        <InheritanceConnector EntityType="BlackBox.EntityAttribute" ManuallyRouted="false" >
+          <ConnectorPoint PointX="7.125" PointY="5.22068359375" />
+          <ConnectorPoint PointX="7.125" PointY="7.6249999999999991" />
+          <ConnectorPoint PointX="9.625" PointY="7.6249999999999991" />
+          <ConnectorPoint PointX="9.625" PointY="8" />
+        </InheritanceConnector>
+        <EntityTypeShape EntityType="BlackBox.SEntity" PointX="0.5" PointY="3.625" Width="1.5" Height="1.2110807291666665" />
+        <InheritanceConnector EntityType="BlackBox.SEntity">
+          <ConnectorPoint PointX="5.25" PointY="2.787985026041667" />
+          <ConnectorPoint PointX="5.25" PointY="3.25" />
+          <ConnectorPoint PointX="1.25" PointY="3.25" />
+          <ConnectorPoint PointX="1.25" PointY="3.6249999999999987" />
+        </InheritanceConnector>
+        <AssociationConnector Association="BlackBox.SEntityBbDefinition">
+          <ConnectorPoint PointX="2" PointY="4.422841796875" />
+          <ConnectorPoint PointX="3" PointY="4.422841796875" />
+        </AssociationConnector>
+        <AssociationConnector Association="BlackBox.EntityAttributeBbDefinition">
+          <ConnectorPoint PointX="10.28125" PointY="8" />
+          <ConnectorPoint PointX="10.28125" PointY="6.5932421875" />
+          <ConnectorPoint PointX="7.208333333333333" PointY="6.5932421874999987" />
+          <ConnectorPoint PointX="7.041666666666667" PointY="6.5932421875" />
+          <ConnectorPoint PointX="6.114583333333333" PointY="6.5932421874999987" />
+          <ConnectorPoint PointX="5.947916666666667" PointY="6.5932421875" />
+          <ConnectorPoint PointX="4.875" PointY="6.5932421875" />
+        </AssociationConnector>
+        <AssociationConnector Association="BlackBox.EntityAttributeSEntity">
+          <ConnectorPoint PointX="8.875" PointY="9.9153857421875" />
+          <ConnectorPoint PointX="1.25" PointY="9.9153857421875" />
+          <ConnectorPoint PointX="1.25" PointY="5.22068359375" />
+        </AssociationConnector>
+        <AssociationConnector Association="BlackBox.BbTypeAttributeBbDefinition">
+          <ConnectorPoint PointX="6.03125" PointY="8" />
+          <ConnectorPoint PointX="6.03125" PointY="5.9069603906249988" />
+          <ConnectorPoint PointX="4.875" PointY="5.9069603906249988" />
+        </AssociationConnector>
+        <AssociationConnector Association="BlackBox.BbTypeForAttribute">
+          <ConnectorPoint PointX="3.3011994230769233" PointY="6.7590950520833326" />
+          <ConnectorPoint PointX="3.3011994230769233" PointY="8.8939925130208337" />
+          <ConnectorPoint PointX="5.875" PointY="8.8939925130208337" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="BlackBox.MvdDefinition" Width="1.5" PointX="8.625" PointY="4" Height="2.1725878906249996" />
+        <InheritanceConnector EntityType="BlackBox.MvdDefinition" ManuallyRouted="false" >
+          <ConnectorPoint PointX="5.25" PointY="2.787985026041667" />
+          <ConnectorPoint PointX="5.25" PointY="3.162985026041667" />
+          <ConnectorPoint PointX="5.2854114098557679" PointY="3.1629850260416665" />
+          <ConnectorPoint PointX="5.4520780765224339" PointY="3.162985026041667" />
+          <ConnectorPoint PointX="9.375" PointY="3.162985026041667" />
+          <ConnectorPoint PointX="9.375" PointY="4" />
+        </InheritanceConnector>
+        <EntityTypeShape EntityType="BlackBox.MvdExchange" Width="1.875" PointX="10.625" PointY="3.625" Height="5.0571093749999978" />
+        <EntityTypeShape EntityType="BlackBox.NameSpace" Width="1.5" PointX="13.25" PointY="3.625" Height="1.7879850260416665" />
+        <AssociationConnector Association="BlackBox.NameSpaceAciExchange">
+          <ConnectorPoint PointX="13.25" PointY="4.5189925130208337" />
+          <ConnectorPoint PointX="12.5" PointY="4.5189925130208337" />
+        </AssociationConnector>
+        <AssociationConnector Association="BlackBox.AciExchangeMvdDefinition">
+          <ConnectorPoint PointX="10.625" PointY="5.1824446614583337" />
+          <ConnectorPoint PointX="10.125" PointY="5.1824446614583337" />
+        </AssociationConnector>
+        <AssociationConnector Association="BlackBox.BbDefinitionNameSpace">
+          <ConnectorPoint PointX="4.875" PointY="3.6567297692307692" />
+          <ConnectorPoint PointX="5.5004797692307683" PointY="3.03125" />
+          <ConnectorPoint PointX="12.632019230769231" PointY="3.03125" />
+          <ConnectorPoint PointX="13.25" PointY="3.6492307692307695" />
+        </AssociationConnector>
+        <AssociationConnector Association="BlackBox.BbDefinitionNameSpace1">
+          <ConnectorPoint PointX="4.875" PointY="3.6567297692307692" />
+          <ConnectorPoint PointX="5.2192297692307683" PointY="3.3125" />
+          <ConnectorPoint PointX="9.2916666666666661" PointY="3.3124999999999996" />
+          <ConnectorPoint PointX="9.4583333333333339" PointY="3.3125" />
+          <ConnectorPoint PointX="12.962883615384616" PointY="3.3125" />
+          <ConnectorPoint PointX="13.275383615384616" PointY="3.625" />
+        </AssociationConnector>
+        <AssociationConnector Association="BlackBox.BbDefinitionBbDefinition">
+          <ConnectorPoint PointX="3.6649038461538463" PointY="3.625" />
+          <ConnectorPoint PointX="3.6649038461538463" PointY="3.375" />
+          <ConnectorPoint PointX="3.8541666666666665" PointY="3.3749999999999996" />
+          <ConnectorPoint PointX="4.020833333333333" PointY="3.375" />
+          <ConnectorPoint PointX="4.2230769230769232" PointY="3.375" />
+          <ConnectorPoint PointX="4.2230769230769232" PointY="3.625" />
+        </AssociationConnector>
+        <InheritanceConnector EntityType="BlackBox.BbTypeAttribute" />
+        <InheritanceConnector EntityType="BlackBox.EntityAttribute" />
+        <InheritanceConnector EntityType="BlackBox.MvdDefinition" />
+        <InheritanceConnector EntityType="BlackBox.AttributeDefinition" />
+        <InheritanceConnector EntityType="BlackBox.BbDefinition" />
+        <InheritanceConnector EntityType="BlackBox.SEntity" />
+        </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

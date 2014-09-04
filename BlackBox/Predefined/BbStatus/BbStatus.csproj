@@ -1,0 +1,98 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{61ED84EA-DBA8-4574-92C2-77E548BD3B15}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>BbStatus</RootNamespace>
+    <AssemblyName>BbStatus</AssemblyName>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>True</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>False</Optimize>
+    <OutputPath>..\..\..\Library\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>True</Optimize>
+    <OutputPath>..\..\..\Library\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'NUnitTest|AnyCPU'">
+    <OutputPath>..\..\..\Library\NUnitTest\</OutputPath>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BbStatus.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Ifc\IFC2X3\IFC2X3.csproj">
+      <Project>{C0590489-A0E9-482A-9F2F-9E50E0ACA698}</Project>
+      <Name>IFC2X3</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Part21\EBInstanceModel\EBInstanceModel.csproj">
+      <Project>{AD0E267B-5397-4C62-B5D9-449E0FD1AF1F}</Project>
+      <Name>EBInstanceModel</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Service\BbBlackBox.Service.csproj">
+      <Project>{CDABBF36-99FD-4537-B07A-C6B663F8818F}</Project>
+      <Name>BbBlackBox.Service</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BbElement\BbElement.csproj">
+      <Project>{30DCCB50-1300-43BE-BD10-BF351E1ABA90}</Project>
+      <Name>BbElement</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BbProduct\BbProduct.csproj">
+      <Project>{F3345F67-2BAE-400A-920C-5E4814A670FD}</Project>
+      <Name>BbProduct</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BbPropertyEnumerated\BbPropertyEnumerated.csproj">
+      <Project>{6880C52F-3A81-436F-A8AD-09865EEECAC2}</Project>
+      <Name>BbPropertyEnumerated</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BbPropertySet\BbPropertySet.csproj">
+      <Project>{5EFC5FA5-DB99-4113-ACC3-5B2EF51915C5}</Project>
+      <Name>BbPropertySet</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BbProperty\BbProperty.csproj">
+      <Project>{E3F0897C-FF2D-4E08-A272-63428958B88F}</Project>
+      <Name>BbProperty</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BbSimpleProperty\BbSimpleProperty.csproj">
+      <Project>{F27011D9-2861-491F-A457-2C69EFB76541}</Project>
+      <Name>BbSimpleProperty</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BbSingleProperty\BbSingleProperty.csproj">
+      <Project>{05B90F9D-A98A-4FE5-BE33-A60D0BFF8307}</Project>
+      <Name>BbSingleProperty</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,140 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{94621A58-41A1-4050-AB8A-59E2D6ED938F}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+     <RootNamespace>BbAnnotation</RootNamespace>
+    <AssemblyName>BbAnnotation</AssemblyName>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>Svn</SccProjectName>
+    <SccLocalPath>Svn</SccLocalPath>
+    <SccAuxPath>Svn</SccAuxPath>
+    <SccProvider>SubversionScc</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>True</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>False</Optimize>
+    <OutputPath>..\..\..\Library\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>
+    </DocumentationFile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>True</Optimize>
+    <OutputPath>..\..\..\Library\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>..\..\..\Library\SemAnnotation.XML</DocumentationFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="SemAnnotation.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\EBInstanceModel\EBInstanceModel.csproj">
+      <Project>{AD0E267B-5397-4C62-B5D9-449E0FD1AF1F}</Project>
+      <Name>EBInstanceModel</Name>
+      <Private>False</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\IFC2X3\IFC2X3.csproj">
+      <Project>{C0590489-A0E9-482A-9F2F-9E50E0ACA698}</Project>
+      <Name>IFC2X3</Name>
+      <Private>False</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Service\Sem.Service.csproj">
+      <Project>{CDABBF36-99FD-4537-B07A-C6B663F8818F}</Project>
+      <Name>Sem.Service</Name>
+      <Private>False</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\SemCoordinate3D\SemCoordinate3D.csproj">
+      <Project>{47806053-A99B-4B3A-B988-A578B1D19152}</Project>
+      <Name>SemCoordinate3D</Name>
+      <Private>False</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\SemDirection3D\SemDirection3D.csproj">
+      <Project>{A8B8EDC7-0156-481E-8919-CA4C26A40CEF}</Project>
+      <Name>SemDirection3D</Name>
+      <Private>False</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\SemElementGeometry\SemElementGeometry.csproj">
+      <Project>{6660A463-AE43-4BAF-9C70-E11A509212EC}</Project>
+      <Name>SemElementGeometry</Name>
+      <Private>False</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\SemElement\SemElement.csproj">
+      <Project>{30DCCB50-1300-43BE-BD10-BF351E1ABA90}</Project>
+      <Name>SemElement</Name>
+      <Private>False</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\SemHeaderSetting\SemHeaderSetting.csproj">
+      <Project>{2AE66BAE-97B8-479E-BE7B-750D7680C0F2}</Project>
+      <Name>SemHeaderSetting</Name>
+      <Private>False</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\SemLocalPlacement3D\SemLocalPlacement3D.csproj">
+      <Project>{67F03658-253C-4109-868C-12AC92A3FA77}</Project>
+      <Name>SemLocalPlacement3D</Name>
+      <Private>False</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\SEMMainPiece\SemMainPiece.csproj">
+      <Project>{17008894-B2DD-4C0E-B27F-9D9A83B2BEDD}</Project>
+      <Name>SemMainPiece</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SemPosition2D\SemPosition2D.csproj">
+      <Project>{5918B72D-8FA3-429A-8637-F8852B022A85}</Project>
+      <Name>SemPosition2D</Name>
+      <Private>False</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\SemPosition3D\SemPosition3D.csproj">
+      <Project>{E165A323-F91F-4AB1-8074-1D2E7D3A8CFE}</Project>
+      <Name>SemPosition3D</Name>
+      <Private>False</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\SemProduct\SemProduct.csproj">
+      <Project>{F3345F67-2BAE-400A-920C-5E4814A670FD}</Project>
+      <Name>SemProduct</Name>
+      <Private>False</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\SemReferenceableGeometry\SemReferenceableGeometry.csproj">
+      <Project>{6C80B357-1485-40C3-A62C-789A2D61B3BA}</Project>
+      <Name>SemReferenceableGeometry</Name>
+      <Private>False</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\SemSteelPiece\SemPiece.csproj">
+      <Project>{61CDB7A9-1DA9-43B0-9869-BC49468A2167}</Project>
+      <Name>SemPiece</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SemTextGeometry\SemTextGeometry.csproj">
+      <Project>{6E3A4D08-DE5F-4577-83C6-BF51D585CEB8}</Project>
+      <Name>SemTextGeometry</Name>
+      <Private>False</Private>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

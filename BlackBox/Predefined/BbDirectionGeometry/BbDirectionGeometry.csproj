@@ -1,0 +1,102 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{BC533334-7D44-411E-9350-1A1E81DFCC0F}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+     <RootNamespace>BbDirectionGeometry</RootNamespace>
+    <AssemblyName>BbDirectionGeometry</AssemblyName>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>True</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>False</Optimize>
+    <OutputPath>..\..\..\Library\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>True</Optimize>
+    <OutputPath>..\..\..\Library\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'NUnitTest|AnyCPU'">
+    <OutputPath>..\..\..\Library\NUnitTest\</OutputPath>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BbDirectionGeometry.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Ifc\IFC2X3\IFC2X3.csproj">
+      <Project>{C0590489-A0E9-482A-9F2F-9E50E0ACA698}</Project>
+      <Name>IFC2X3</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Part21\EBInstanceModel\EBInstanceModel.csproj">
+      <Project>{AD0E267B-5397-4C62-B5D9-449E0FD1AF1F}</Project>
+      <Name>EBInstanceModel</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BbDirection3D\BbDirection3D.csproj">
+      <Project>{A8B8EDC7-0156-481E-8919-CA4C26A40CEF}</Project>
+      <Name>BbDirection3D</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Service\BbBlackBox.Service.csproj">
+      <Project>{CDABBF36-99FD-4537-B07A-C6B663F8818F}</Project>
+      <Name>BbBlackBox.Service</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BbCoordinate3D\BbCoordinate3D.csproj">
+      <Project>{47806053-A99B-4B3A-B988-A578B1D19152}</Project>
+      <Name>BbCoordinate3D</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BbCurve\BbCurve.csproj">
+      <Project>{0751C5E8-D1DA-448D-9702-EAF9AAFCF9B1}</Project>
+      <Name>BbCurve</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BbElementGeometry\BbElementGeometry.csproj">
+      <Project>{6660A463-AE43-4BAF-9C70-E11A509212EC}</Project>
+      <Name>BbElementGeometry</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BbGeometry\BbGeometry.csproj">
+      <Project>{E3B1CAA6-FB48-43C7-A6EB-8347E88F5A34}</Project>
+      <Name>BbGeometry</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BbHeaderSetting\BbHeaderSetting.csproj">
+      <Project>{2AE66BAE-97B8-479E-BE7B-750D7680C0F2}</Project>
+      <Name>BbHeaderSetting</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BbPolyline3D\BbPolyline3D.csproj">
+      <Project>{D25F7FDE-B715-4731-A11F-BEFCE2AC4EEE}</Project>
+      <Name>BbPolyline3D</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BbPosition3D\BbPosition3D.csproj">
+      <Project>{E165A323-F91F-4AB1-8074-1D2E7D3A8CFE}</Project>
+      <Name>BbPosition3D</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
